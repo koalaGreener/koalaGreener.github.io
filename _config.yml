@@ -5,7 +5,7 @@ description: "A dark blog theme for Jekyll."
 baseurl: ""
 url: "http://koalagreener.github.io"
 title_description: "I am a postgraduate student studying in UCL."
-title_image: "http://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
+title_image: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/082/349/2038358.jpg"
 google_analytics: "UA-20365477-4"
 disqus_account: None
 github_repository: https://github.com/koalaGreener
