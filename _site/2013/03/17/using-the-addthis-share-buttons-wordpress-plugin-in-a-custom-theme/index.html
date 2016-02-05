@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Using the AddThis Share Buttons wordpress plugin in a custom theme</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-add-this fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Using the AddThis Share Buttons wordpress plugin in a custom theme</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">March 17, 2013</span>
+           under Web Development
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          9 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>There is an undocumented function for adding a custom AddThis widget to your Wordpress theme when using the <a title="Add This Share Buttons WordPress Plugin" href="http://wordpress.org/extend/plugins/addthis/" target="_blank">Add This Share Buttons plugin</a>, so I thought I would document it here.</p>
+
+<p>Usage:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span> <span class="s1">'addthis_widget'</span><span class="p">,</span> <span class="nv">$the_permalink</span><span class="p">,</span> <span class="nv">$the_title</span><span class="p">,</span> <span class="nv">$custom_style</span> <span class="p">);</span> <span class="cp">?&gt;</span>
+</code></pre></div>
+<p>Parameters:</p>
+
+<p><strong>$the_permalink</strong><br>
+(<em>string</em>) (<em>optional</em>) The url you want to share with AddThis.<br>
+Default:  get_permalink()</p>
+
+<p><strong>$the_title</strong><br>
+(<em>string</em>) (<em>optional</em>) The title of the page you&#8217;re sharing.<br>
+Default:  get_the_title()</p>
+
+<p><strong>$custom_style</strong><br>
+(<em>string</em>)  (<em>optional</em>) The name of the preset style you want to use         or<br>
+(<em>array</em>) (<em>optional</em>) An array of the settings you want to use for your own custom style<br>
+Default:  &#39;fb_tw_p1_sc&#39;</p>
+
+<p><strong>Preset Styles</strong></p>
+
+<table class="table table-condensed">
+  <tr>
+    <td>
+      <strong>Style</strong>
+    </td>
+
+    <td>
+      <strong>Description</strong>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>fb_tw_p1_sc</em>
+    </td>
+
+    <td>
+      Facebook, twitter, pinterest and social counter
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>large_toolbox</em>
+    </td>
+
+    <td>
+      Large toolbox
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>small_toolbox</em>
+    </td>
+
+    <td>
+      Small toolbox
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>plus_one_share_counter</em>
+    </td>
+
+    <td>
+      Google plus counter
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>small_toolbox_with_share</em>
+    </td>
+
+    <td>
+      Small toolbox with share button
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>fb_tw_sc</em>
+    </td>
+
+    <td>
+      Facebook, twitter and social counter
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>simple_button</em>
+    </td>
+
+    <td>
+      Simple AddThis sharing button
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>button</em>
+    </td>
+
+    <td>
+      Default AddThis sharing button
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>share_counter</em>
+    </td>
+
+    <td>
+      AddThis share counter
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>above</em>
+    </td>
+
+    <td>
+      SPECIAL loads your setting from the admin control panel for the top widget
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>below</em>
+    </td>
+
+    <td>
+      SPECIAL loads your setting from the admin control panel for the bottom widget
+    </td>
+  </tr>
+</table>
+
+<p><strong>Custom Style Settings</strong></p>
+
+<table class="table table-condensed">
+  <tr>
+    <td>
+      <strong>Setting</strong>
+    </td>
+
+    <td>
+      <strong>Description</strong>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>type</em>
+    </td>
+
+    <td>
+      (<em>string</em>) Must be set to <em>&#8216;custom&#8217;</em>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>size</em>
+    </td>
+
+    <td>
+      (<em>string</em>) Icon size, 16 or 32. e.g <em>&#8217;16&#8242;</em>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>services</em>
+    </td>
+
+    <td>
+      (<em>string</em>) Comma separated services. Full list of services <a title="AddThis Services" href="http://www.addthis.com/services/list#.UUX6QlqAuYQ" target="_blank">here</a>. e.g <em>&#8216;facebook, twitter, google_plusone_share, email, pinterest_share&#8217;</em>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>preferred</em>
+    </td>
+
+    <td>
+      (<em>string</em>) Number of additional services chosen from the user&#8217;s most used. e.g <em>&#8217;3&#8242;</em>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>more</em>
+    </td>
+
+    <td>
+      (<em>boolean</em>) If you want to have the more button at the end. e.g <em>true</em>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <em>counter</em>
+    </td>
+
+    <td>
+      (<em>boolean/string</em>) If you want the counter at the end e.g  <em>true</em> or the counter style (assumes true) e.g  <em>&#8216;bubble_style&#8217;</em>
+    </td>
+  </tr>
+</table>
+
+<p><strong>Example Usage</strong></p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span> <span class="s1">'addthis_widget'</span><span class="p">,</span> <span class="nx">get_permalink</span><span class="p">(),</span> <span class="nx">get_the_title</span><span class="p">(),</span> <span class="s1">'small_toolbox'</span><span class="p">);</span> <span class="cp">?&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span> <span class="s1">'addthis_widget'</span><span class="p">,</span> <span class="nx">get_permalink</span><span class="p">(),</span> <span class="nx">get_the_title</span><span class="p">(),</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="s1">'custom'</span><span class="p">,</span>
+    <span class="s1">'size'</span> <span class="o">=&gt;</span> <span class="s1">'16'</span><span class="p">,</span> <span class="c1">// size of the icons.  Either 16 or 32
+</span>    <span class="s1">'services'</span> <span class="o">=&gt;</span> <span class="s1">'facebook,twitter,digg'</span><span class="p">,</span> <span class="c1">// the services you want to always appear
+</span>    <span class="s1">'preferred'</span> <span class="o">=&gt;</span> <span class="s1">'7'</span><span class="p">,</span> <span class="c1">// the number of auto personalized services
+</span>    <span class="s1">'more'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// if you want to have a more button at the end
+</span>    <span class="s1">'counter'</span> <span class="o">=&gt;</span> <span class="s1">'bubble_style'</span> <span class="c1">// if you want a counter and the style of it
+</span>    <span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre></div>
+<h3>How I found this</h3>
+
+<p>So I recently decided to give my website a bit of a facelift and as part of that I decided to add some better quality sharing buttons to my blog posts and portfolio projects. I settled on using the <a title="Add This Share Buttons wordpress plugin" href="http://wordpress.org/extend/plugins/addthis/" target="_blank">AddThis Share Buttons plugin</a> for WordPress. However when using the plugin I had a bit of trouble placing the AddThis widget exactly where I wanted it.</p>
+
+<p>The main issue I came across was that when using the settings page for the plugin it only gave me the option to place it above and/or below my post and gave me a selection of a few different styles. When looking at the screenshots I saw buttons for custom and advanced settings and so I assumed I could easily place the widget where I wanted it and would be able to style it as simply as you can with the website version of the <a title="Add This Share Buttons" href="https://www.addthis.com/get/sharing" target="_blank">AddThis Share Buttons</a>. But once I actually installed the plugin and had a look through the settings I saw that the custom option just allowed you to specify how the box looks but not it&#8217;s location and the advanced settings were more for the analytics and other options.</p>
+
+<p>By default if you have a sharing widget at the top the plugin hooks to <a title="Wordpress function the_content()" href="https://developer.wordpress.org/reference/functions/the_content/" target="_blank">the content</a> and places the code before your content and if you select bottom it places the code after your content. I didn&#8217;t want either of those options as I wanted my top widget to be in with the header in a div that I could specify and control and I wanted the bottom widget to be after other elements like the tags which I had specified in my theme and I wanted them to have a sharing icon which was in keeping with the tag icon that I&#8217;d given that tags.</p>
+
+<p>So I began looking for either a php function or shortcode that I could put into my theme. I was unable to find anything in the plugin documentation so naturally I took to google to find a solution. The only thing I managed to find was <a title="Wordpress forum for Addthis custom widget" href="http://wordpress.org/support/topic/is-there-a-shortcode-for-addthis" target="_blank">this forum page</a> where someone suggested using the function</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span> <span class="s1">'addthis_widget'</span> <span class="p">);</span> <span class="cp">?&gt;</span>
+</code></pre></div>
+<p>I found that putting that into your theme gives you a default widget in that position so this is a start.</p>
+
+<p>The next thing I wanted to do was to style the widget how I wanted it. I like the small &#8216;bubble&#8217; style default widget the you can choose from the default menu but I also wanted one with more options on to go at the bottom. So again back to google, this time with the function name, and found <a title="add_this function custom parameter" href="http://wordpress.org/support/topic/do_action-addthis_widget-customize" target="_blank">this forum page</a> where it was suggested that you could give an array as the fourth parameter of the action which would take custom options like this</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span> <span class="s1">'addthis_widget'</span><span class="p">,</span> <span class="nx">get_permalink</span><span class="p">(),</span> <span class="nx">get_the_title</span><span class="p">(),</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'size'</span> <span class="o">=&gt;</span> <span class="s1">'16'</span><span class="p">,</span> <span class="c1">// size of the icons.  Either 16 or 32
+</span>    <span class="s1">'services'</span> <span class="o">=&gt;</span> <span class="s1">'hyves,joliprint'</span><span class="p">,</span> <span class="c1">// the services you want to always appear
+</span>    <span class="s1">'preferred'</span> <span class="o">=&gt;</span> <span class="s1">'8'</span><span class="p">,</span> <span class="c1">// the number of auto personalized services
+</span>    <span class="s1">'more'</span> <span class="o">=&gt;</span> <span class="kc">true</span> <span class="c1">// if you want to have a more button at the end
+</span>    <span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre></div>
+<p>The function takes the url to share and the title of the page as the second and third parameters so you have to specify them as we are trying to override the fourth. I had a little play with the options given in the example on that page but couldn&#8217;t get the plugin to look quite how I wanted.</p>
+
+<p>I found a second solution where someone suggested that instead of passing an array you can pass a string with the name of the default style you want to use. They went on to suggest that you could then go into the plugin code, find the array of styles and add your own. I wouldn&#8217;t recommend this though as your changes would get written over next time the plugin is updated.  <em>Remember if you&#8217;re creating a custom theme keep all your changes in the theme directory or risk being overwritten in updates.</em></p>
+
+<p>But if you do want to just specify custom placement of the widget and not a custom style then this is a valid option, here is an example of the code and a list of all the default styles.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span> <span class="s1">'addthis_widget'</span><span class="p">,</span> <span class="nx">get_permalink</span><span class="p">(),</span> <span class="nx">get_the_title</span><span class="p">(),</span> <span class="s1">'small_toolbox'</span> <span class="p">);</span>
+</code></pre></div>
+<p>See table above for details.</p>
+
+<p>But in order to try and specify the exact layout I decided to take a look into the plugin itself and find out what the function was doing. Now the first thing the function does is to check if you&#8217;ve passed it a string and if it is in the list of defaults specified above, if so it will load that style. If it isn&#8217;t any of those it checks if you have used one of the special options, this loads the style you specified in the plugin settings in the admin control panel for either the top or the bottom. Then it checks if it isn&#8217;t any of those and you have passed it an array instead, if you have it calls another function which builds a custom widget based on what is specified in the array.</p>
+
+<p>The function which builds the custom widget first checks to see if you&#8217;ve specified size and if you&#8217;ve set it to 32 then it add the option for 32px icons. It then loops through the services key which should be another array with a list of services you want to show. Then it checks to see if you&#8217;ve set a number of prefered icons to fill in and adds those to the widget. It checks to see if you&#8217;ve specified for the more button to be shown. Finally it checks to see if you&#8217;ve specified the counter, if you&#8217;ve set counter to true it shows the default or if you&#8217;ve set the counter to a string it uses that string as the counter style.</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            addthis, theme, wordpress
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2013/2013-03-17-using-the-addthis-share-buttons-wordpress-plugin-in-a-custom-theme.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

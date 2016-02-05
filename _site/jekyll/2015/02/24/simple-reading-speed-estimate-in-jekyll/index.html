@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple reading speed estimate in Jekyll</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-jekyll fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Simple reading speed estimate in Jekyll</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">February 24, 2015</span>
+           under Jekyll
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          3 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>When browsing through off-the-shelf Jekyll themes recently I stumbled across
+one I really like called <a href="https://github.com/johnotander/pixyll">Pixyll</a>. There are lots of things I like
+about the theme but one thing in particular is the reading speed estimate
+at the top of each article. Not only is it a nice feature but the code is simple and
+concise too!</p>
+
+<p>The code was first <a href="https://github.com/johnotander/pixyll/commit/0979ada039a7a36b3383c0739b1e7d7edb1f34f9">contributed</a> to the project by GitHub user <a href="https://github.com/WrinklyNinja">WrinklyNinja</a> and I decided I
+liked it so much I would add it to my own blog.</p>
+
+<p>This simple one line of code (which I included immediately after my frontmatter)
+takes the number of words inside the content of
+your article and divides by 180 words per minute. This is lower than the
+generally accepted 200-250 words per minute of the average adult but I think
+having it a bit lower takes into account thoroughly reading through code snippets
+and looking at images.</p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">assign</span><span class="w"> </span><span class="err">minutes</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">content</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">number_of_words</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">divided_by:</span><span class="w"> </span><span class="err">180</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The next line simply rounds up from 0 if the article will take less than one minute
+to read.</p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">minutes</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">0</span><span class="w"> </span><span class="err">%</span><span class="p">}{</span><span class="err">%</span><span class="w"> </span><span class="err">assign</span><span class="w"> </span><span class="err">minutes</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="err">%</span><span class="p">}{</span><span class="err">%</span><span class="w"> </span><span class="err">endif</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Then to display the minute count on the page simply use the variable in whatever
+sentence you like.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">A {{ minutes }} minute read
+</code></pre></div>
+<p>Taking it a bit further, Rassol made a <a href="https://github.com/johnotander/pixyll/commit/16fc4ea2c83eadd40781f914f8654567926e6b7e">nice addition</a> which allows you to override the number
+of minutes in the pages YAML Frontmatter. However he decided to add the logic
+to the display code , I felt it would probably be better to add it to the calculation
+because there is no point in calculating it if it has already been specified.</p>
+
+<p><a href="https://github.com/johnotander/pixyll/commit/0742c98c9e379de607ff840595ceb29583e139a7">My changes</a> wrap around the first two lines to look like this.</p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">page.minutes</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+  </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">assign</span><span class="w"> </span><span class="err">minutes</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">page.minutes</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">else</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+  </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">assign</span><span class="w"> </span><span class="err">minutes</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">content</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">number_of_words</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">divided_by:</span><span class="w"> </span><span class="err">180</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+  </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">minutes</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">0</span><span class="w"> </span><span class="err">%</span><span class="p">}{</span><span class="err">%</span><span class="w"> </span><span class="err">assign</span><span class="w"> </span><span class="err">minutes</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="err">%</span><span class="p">}{</span><span class="err">%</span><span class="w"> </span><span class="err">endif</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endif</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>And you can simply specify the number of minutes in the frontmatter.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">minutes: 8
+</code></pre></div>
+<p>Adding a reading length to your article lets people know how long
+they need to spend on your content and make a quick decision about whether
+they have enough time to do so.</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            jekyll, reading speed
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2015/2015-02-24-simple-reading-speed-estimate-in-jekyll.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to install OS X Yosemite Developer Preview Beta in Virtualbox</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-osx fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">How to install OS X Yosemite Developer Preview Beta in Virtualbox</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">June 7, 2014</span>
+           under Apple
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          3 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>Like me you may be excited about the Developer Preview Beta of OS X 10.10 Yosemite and want to try it out, but you don&#39;t want to deal with a buggy system between now and the general release. If that&#39;s the case you&#39;ll want to install Yosemite as a virtual machine on your Mac. Here&#39;s how I&#39;ve done it on mine using VirtualBox.</p>
+
+<p><strong>[Update]</strong> Performance is pretty poor at the moment.</p>
+
+<ul>
+<li>  First you&#39;ll want to log into your Apple developer account and download the &quot;OS X Yosemite Developer Preview&quot;, it will open up the Mac App Store and automatically redeem a code for you to download the Developer Preview.</li>
+</ul>
+
+<p><img src="http://i.imgur.com/IrTlNCp.png" alt="Yosemite"></p>
+
+<ul>
+<li>  Once you have the installation app downloaded make sure you don&#39;t let it run or it will upgrade your Mac to the Developer preview.</li>
+<li>  Quit the application.</li>
+<li>  Before we can make Yosemite work with VirtualBox we need to make a couple of changes to the installation media.</li>
+<li>  Open up a terminal and run the following commands.</li>
+</ul>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install iesd
+iesd -i /Applications/Install<span class="se">\ </span>OS<span class="se">\ </span>X<span class="se">\ </span>10.10<span class="se">\ </span>Developer<span class="se">\ </span>Preview.app -o YosemitePreview.dmg -t BaseSystem
+hdiutil convert YosemitePreview.dmg -format UDSP -o YosemitePreview.sparseimage
+hdiutil mount /Applications/Install<span class="se">\ </span>OS<span class="se">\ </span>X<span class="se">\ </span>10.10<span class="se">\ </span>Developer<span class="se">\ </span>Preview.app/Contents/SharedSupport/InstallESD.dmg
+hdiutil mount YosemitePreview.sparseimage
+cp /Volumes/OS<span class="se">\ </span>X<span class="se">\ </span>Install<span class="se">\ </span>ESD/BaseSystem.<span class="k">*</span> /Volumes/OS<span class="se">\ </span>X<span class="se">\ </span>Base<span class="se">\ </span>System/
+hdiutil detach /Volumes/OS<span class="se">\ </span>X<span class="se">\ </span>Install<span class="se">\ </span>ESD/
+hdiutil detach /Volumes/OS<span class="se">\ </span>X<span class="se">\ </span>Base<span class="se">\ </span>System/
+hdiutil convert YosemitePreview.sparseimage -format UDZO -o YosemitePreviewVirtualBox.dmg
+</code></pre></div>
+<ul>
+<li>  You&#39;ll probably then want to clean up the extra <code>YosemitePreview.dmg</code> and <code>YosemitePreview.sparseimage</code> with the following commands.</li>
+</ul>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">rm YosemitePreview.sparseimage
+rm YosemitePreview.dmg
+</code></pre></div>
+<ul>
+<li>  Open VirtualBox and click &quot;New&quot;.
+
+<ul>
+<li>  Give your new VM a name.</li>
+<li>  Select &quot;Mac OS X&quot; as the type.</li>
+<li>  Select &quot;Mac OS X (64 bit)&quot; for the version.</li>
+</ul></li>
+</ul>
+
+<p><img src="http://i.imgur.com/HLTNb7x.png" alt="Yosemite"></p>
+
+<ul>
+<li>  Create a disk in your desired location.
+
+<ul>
+<li>  Make sure you give it at least the 20GB default size.</li>
+</ul></li>
+<li>  <span style="line-height: 1.5em;">Give it a couple of processor cores.</span></li>
+<li>  <span style="line-height: 1.5em;">Allocate at least 2GB of RAM (I gave mine 4GB).</span></li>
+</ul>
+
+<p><img src="http://i.imgur.com/AsL9mZA.png" alt="Yosemite"></p>
+
+<ul>
+<li>  Now you&#39;ll need to go into the settings and under system change the Chipset to PIIX3.</li>
+<li>  If you have a newer MacBook Pro open Terminal and do the following</li>
+</ul>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /path/to/your/vm
+VBoxManage modifyvm <span class="s2">"VM Name"</span> –cpuidset 00000001 000306a9 00020800 80000201 178bfbff
+</code></pre></div>
+<p><img src="http://i.imgur.com/8pSI2Ww.png" alt="Yosemite"></p>
+
+<ul>
+<li>  Then go into storage, select the empty disk image</li>
+<li>  Click the disk icon</li>
+<li>  Select &quot;Choose a virtual CD/DVD disk file...&quot;
+
+<ul>
+<li>  You can see my yosemite disk and a ubuntu disk from previous use.</li>
+</ul></li>
+<li>  Select your disk and click ok.</li>
+</ul>
+
+<p><img src="http://i.imgur.com/8BKCd1L.png" alt="Yosemite"></p>
+
+<ul>
+<li>  You&#39;re now ready to boot up your VM, so click the &quot;Start&quot; button.</li>
+<li>  You&#39;ll notice that you get a messy looking boot screen with lots of unix output rather than the normal Apple logo and loading icon, this is because it&#39;s a Developer Preview. Eventually you&#39;ll end up at the installation screen.</li>
+</ul>
+
+<p><img src="http://i.imgur.com/L3vGRVQ.png" alt="Yosemite"></p>
+
+<ul>
+<li>  From here you need to select Utilities -&gt; Disk Utility from the top menu bar.</li>
+<li>  In disk utility you need to select your VBOX HARDDRIVE</li>
+<li>  Erase it as Mac OS Extended (Journaled) and give it a name.</li>
+</ul>
+
+<p><img src="http://i.imgur.com/lVJXcmK.png" alt="Yosemite">
+<img src="http://i.imgur.com/G2eudHs.png" alt="Yosemite"></p>
+
+<ul>
+<li>  Once you&#39;ve done this quit Disk Utility and start the installation.</li>
+<li>  Select your newly formatted disk and wait for it to install.</li>
+</ul>
+
+<p><img src="http://i.imgur.com/Zrk5F5S.png" alt="Yosemite"></p>
+
+<p>Once this completed you should be greeted with something that looks like this.</p>
+
+<p><img src="http://i.imgur.com/VrkQncM.png" alt="Yosemite"></p>
+
+<p>Now sadly the performance of Yosemite in VirtualBox is pretty poor. But it&#39;s good if you want to take a quick look at the features.</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            apple, Developer Preview, Guide, os x, terminal, VirtualBox, Yosemite
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2014/2014-06-07-how-to-install-os-x-yosemite-developer-preview-in-virtualbox.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

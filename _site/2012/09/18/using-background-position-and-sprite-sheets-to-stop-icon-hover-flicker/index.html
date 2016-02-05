@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Using background-position and sprite sheets to stop icon hover flicker</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-internet fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Using background-position and sprite sheets to stop icon hover flicker</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">September 18, 2012</span>
+           under Web Development
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          3 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>While updating the theme on this blog I added some links to my social websites. I made these links in the form of images which were black and white and become coloured when hovered over. To create these icons I created empty divs which would then be styled in CSS.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"facebook-icon"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div>
+<p>The CSS set the div size and the background image and then changed the background image on hover. Something along the lines of</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.facebook-icon</span> <span class="p">{</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">32px</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">32px</span><span class="p">;</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(images/icons/facebook_dark.png)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.facebook-icon</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(images/icons/facebook_active.png)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This was fine and worked well but it had a problem. When the user hovered over the button for the first time it would flicker because the &#39;active&#39; image hadn&#39;t been loaded yet and it had to wait for the request to return the image. This made the buttons look sloppy and so I had to rethink my approach.</p>
+
+<p>To fix it I used a very basic web design technique which involves putting all the icon images into one file called a sprite sheet and then shifting the background around using the &#39;background-position&#39; property in CSS. This way the page only requests one file which is loaded at the beginning to show the darker images and therefore the colour images are loaded but just not shown.</p>
+
+<p>The best way to think about it is to imagine the div as a little window that you&#39;re looking at the sprite sheet through. You can only see a small part the size of the window and if you move the sprite sheet around the image in the window changes.</p>
+
+<p><img src="http://i.imgur.com/PZq9a1m.png" alt="Icon Sprite Sheet Grey"></p>
+
+<p>So in this example think of the red square as the div which is 32px by 32px. To position the grey facebook icon inside the square the position has to be set to -32px 0px which shifts the background image 32 pixels to the left.</p>
+
+<p><img src="http://i.imgur.com/oI04LAo.png" alt="Icon Sprite Sheet Colour"></p>
+
+<p>Then when the image is hovered over the x position stays at -32px for the facebook icon but the y axis changes to -32px to shift the sprite sheet up 32 pixels and places the colour facebook icon inside the div.</p>
+
+<p>So the CSS for this would be</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.social-icon</span> <span class="p">{</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">32px</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">32px</span><span class="p">;</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(images/icons/social_icons.png)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.facebook-icon</span> <span class="p">{</span>
+    <span class="nl">background-position</span><span class="p">:</span> <span class="m">-32px</span> <span class="m">0px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.facebook-icon</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">background-position</span><span class="p">:</span> <span class="m">-32px</span> <span class="m">-32px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>There are a few changes in this code. One you will notice is that there is an extra class. Each icon now has both the default &#39;social-icon&#39; class which gives the size and background image and then it&#39;s own class to set the position and hover class to set the hover position. To include the default class the div would be changed to</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"social-icon facebook-icon"</span><span class="nt">&gt;&lt;/div&gt;&lt;/pre&gt;</span>
+</code></pre></div>
+<p>Then similar classes are created for <code>twitter-icon</code>, <code>linkedin-icon</code> and <code>googleplus-icon</code>. This means that not only does it save time in creating new icons as the height and width don&#39;t have to be specified each time and solves the icons flickering but also saves many server requests per page.</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            CSS, Guide, HTML
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2012/2012-09-18-using-background-position-and-sprite-sheets-to-stop-icon-hover-flicker.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

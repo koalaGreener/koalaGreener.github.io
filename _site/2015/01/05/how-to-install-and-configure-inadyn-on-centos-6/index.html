@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to install and configure inadyn on CentOS 6</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-centos fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">How to install and configure inadyn on CentOS 6</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">January 5, 2015</span>
+           under Centos
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          5 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><h3>Introduction</h3>
+
+<p>Inadyn is a command line utility for periodically checking and updating your ip
+address with DynDNS.</p>
+
+<p>The guide will walk you through installing and configuring inadyn as a service
+on Centos 6.</p>
+
+<p>All commands in this guide will either need to be run as the root user or with
+sudo.</p>
+
+<h3>Requirements</h3>
+
+<p>If you&#39;re running CentOS x86_64 you&#39;ll need to install the i686 version of glibc
+for inadyn to work.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">yum install glibc.i686
+</code></pre></div>
+<h2>Install Binary</h2>
+
+<p>First we need to download and install the binary. DynDNS makes the utility, along
+with the source code, available as a zip file which you can download from their
+website.</p>
+
+<p>Let&#39;s download and extract this zip file into /tmp.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cd /tmp
+wget http://cdn.dyndns.com/inadyn.zip
+unzip inadyn.zip
+</code></pre></div>
+<p>Next we&#39;ll copy the binary into /usr/bin and make it executable.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cp inadyn/bin/linux/inadyn /usr/bin/inadyn
+chmod 755 /usr/bin/inadyn
+</code></pre></div>
+<h2>Create config file</h2>
+
+<p>When running inadyn you can specify your options on the command line but as we
+will be running it as a service we&#39;re going to put all of our options in a
+config file.</p>
+
+<p>Inadyn will check this config file automatically if you run it without options
+so we&#39;ll open it for editing.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">vi /etc/inadyn.conf
+</code></pre></div>
+<p>Enter the following options and update your username, password and alias.</p>
+<div class="highlight"><pre><code class="language-" data-lang=""># Basic configuration file for inadyn
+#
+# /etc/inadyn.conf
+update_period_sec 600 # Check for a new IP every 600 seconds
+username &lt;username&gt;
+password &lt;password&gt;
+dyndns_system dyndns@dyndns.org
+alias &lt;your dyndns domain&gt;
+background
+</code></pre></div>
+<p>As we&#39;ve stored our password in plain text let&#39;s ensure that only those who need
+to see it can.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">chmod 640 /etc/inadyn.conf
+</code></pre></div>
+<h2>Create init script</h2>
+
+<p>Next we&#39;ll create an init script for inadyn so it can start automatically on
+boot.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">vi /etc/init.d/inadyn
+</code></pre></div>
+<p>This is a modified version of the script provided by trendyserial <a href="http://www.linuxquestions.org/questions/linux-software-2/how-do-i-execute-inadyn-automatically-during-boot-541367/#post4518378">here</a>.</p>
+
+<p>I&#39;ve updated it to make it chkconfig friendly for CentOS and also added a status
+option so we can check if it is running. Copy it into your file.</p>
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c"># inadyn                Startup script for the DynDNS update service</span>
+<span class="c">#</span>
+<span class="c"># chkconfig: 5 85 15</span>
+<span class="c"># description: inadyn updates DynDNS with the current ip address    \</span>
+<span class="c">#                of the server.</span>
+<span class="c"># processname: inadyn</span>
+<span class="c"># config: /etc/inadyn.conf</span>
+<span class="c"># pidfile: /tmp/inadyn.pid</span>
+<span class="c">#</span>
+<span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
+  </span>start<span class="p">)</span>
+    <span class="k">if</span> <span class="o">[</span> -f /tmp/inadyn.pid <span class="o">]</span>; <span class="k">then
+      </span><span class="nv">PID</span><span class="o">=</span><span class="k">$(</span>cat /tmp/inadyn.pid<span class="k">)</span>
+      <span class="nb">kill</span> -0 <span class="k">${</span><span class="nv">PID</span><span class="k">}</span> &amp;&gt;/dev/null
+      <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="o">=</span> 0 <span class="o">]</span>; <span class="k">then
+        </span><span class="nb">echo</span> <span class="s2">"inadyn is already running."</span>
+      <span class="k">else</span>
+        /usr/bin/inadyn
+        pidof inadyn &gt; /tmp/inadyn.pid
+        <span class="nv">PID</span><span class="o">=</span><span class="k">$(</span>cat /tmp/inadyn.pid<span class="k">)</span>
+        <span class="nb">kill</span> -0 <span class="k">${</span><span class="nv">PID</span><span class="k">}</span> &amp;&gt;/dev/null
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="o">=</span> 0 <span class="o">]</span>; <span class="k">then
+          </span><span class="nb">echo</span> <span class="s2">"inadyn started succesfully."</span>
+        <span class="k">else
+          </span><span class="nb">echo</span> <span class="s2">"Error starting inadyn"</span>
+        <span class="k">fi
+      fi
+    else</span>
+      /usr/bin/inadyn
+      pidof inadyn &gt; /tmp/inadyn.pid
+      <span class="nv">PID</span><span class="o">=</span><span class="k">$(</span>cat /tmp/inadyn.pid<span class="k">)</span>
+      <span class="nb">kill</span> -0 <span class="k">${</span><span class="nv">PID</span><span class="k">}</span> &amp;&gt;/dev/null
+      <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="o">=</span> 0 <span class="o">]</span>; <span class="k">then
+        </span><span class="nb">echo</span> <span class="s2">"inadyn started succesfully."</span>
+      <span class="k">else
+        </span><span class="nb">echo</span> <span class="s2">"Error starting inadyn"</span>
+      <span class="k">fi
+    fi</span>
+  <span class="p">;;</span>
+
+  stop<span class="p">)</span>
+    <span class="k">if</span> <span class="o">[</span> -f /tmp/inadyn.pid <span class="o">]</span>;<span class="k">then
+      </span><span class="nv">PID</span><span class="o">=</span><span class="k">$(</span>cat /tmp/inadyn.pid<span class="k">)</span>
+      <span class="nb">kill</span> -0 <span class="k">${</span><span class="nv">PID</span><span class="k">}</span> &amp;&gt;/dev/null
+      <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="o">=</span> 0 <span class="o">]</span>; <span class="k">then</span>
+        /bin/kill <span class="k">${</span><span class="nv">PID</span><span class="k">}</span>
+        <span class="nb">kill</span> -0 <span class="k">${</span><span class="nv">PID</span><span class="k">}</span> &amp;&gt;/dev/null
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="o">=</span> 1 <span class="o">]</span>; <span class="k">then
+          </span><span class="nb">echo</span> <span class="s2">"inadyn stopped succesfully."</span>
+        <span class="k">else
+          </span><span class="nb">echo</span> <span class="s2">"Error stopping inadyn"</span>
+        <span class="k">fi
+      else
+        </span><span class="nb">echo</span> <span class="s2">"inadyn is already stopped."</span>
+      <span class="k">fi
+    else
+      </span><span class="nb">echo</span> <span class="s2">"inadyn is already stopped."</span>
+    <span class="k">fi</span>
+  <span class="p">;;</span>
+
+  status<span class="p">)</span>
+    <span class="nv">PID</span><span class="o">=</span><span class="k">$(</span>cat /tmp/inadyn.pid<span class="k">)</span>
+    <span class="k">if </span>ps -p <span class="nv">$PID</span> &gt; /dev/null
+    <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"inadyn is running"</span>
+    <span class="k">else
+      </span><span class="nb">echo</span> <span class="s2">"inadyn is not running"</span>
+    <span class="k">fi</span>
+  <span class="p">;;</span>
+
+  reload|restart<span class="p">)</span>
+    <span class="nv">$0</span> stop
+    <span class="nv">$0</span> start
+  <span class="p">;;</span>
+
+  <span class="k">*</span><span class="p">)</span>
+    <span class="nb">echo</span> <span class="s2">"Usage: </span><span class="nv">$0</span><span class="s2"> start|stop|restart|reload"</span>
+    <span class="nb">exit </span>1
+<span class="k">esac
+</span><span class="nb">exit </span>0
+</code></pre></div>
+<p>We also need to make the script executable so chkconfig can run it.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">chmod +x /etc/init.d/inadyn
+</code></pre></div>
+<h2>Add to chkconfig</h2>
+
+<p>We need to make chkconfig aware of the script and turn it on so that it
+starts on boot.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">chkconfig --add inadyn
+chkconfig inadyn on
+</code></pre></div>
+<p>We can check to make sure inadyn has been added to chkconfig</p>
+<div class="highlight"><pre><code class="language-" data-lang="">chkconfig --list inadyn
+inadyn          0:off   1:off   2:on    3:on    4:on    5:on    6:off
+</code></pre></div>
+<h2>Start service</h2>
+
+<p>Then we need to start the service for the first time.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">service inadyn start
+</code></pre></div>
+<p>You should get some output which looks like this</p>
+<div class="highlight"><pre><code class="language-" data-lang="">inadyn started succesfully.
+</code></pre></div>
+<p>If you want to see what inadyn is doing you can see its log messages in
+/var/log/messages.</p>
+
+<p>If you check now you should see some messages similar to these</p>
+<div class="highlight"><pre><code class="language-" data-lang="">Jan  5 22:00:22 gateway INADYN[15973]: INADYN: Started 'INADYN version 1.96.2' - dynamic DNS updater.
+Jan  5 22:00:22 gateway INADYN[15973]: I:INADYN: IP address for alias 'mydomain.dyndns.org' needs update to 'x.x.x.x'
+Jan  5 22:00:23 gateway INADYN[15973]: I:INADYN: Alias 'mydomain.dyndns.org' to IP 'x.x.x.x' updated successful.
+</code></pre></div>
+<h2>Uninstallation</h2>
+
+<p>To remove inadyn from your system for any reason simply run the following commands</p>
+<div class="highlight"><pre><code class="language-" data-lang="">service inadyn stop
+chkconfig --del inadyn
+rm /etc/init.d/inadyn /etc/inadyn.conf /usr/bin/inadyn
+</code></pre></div></span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            centos, dyndns, inadyn, chkconfig
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2015/2015-01-05-how-to-install-and-configure-inadyn-on-centos-6.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to query a database with AJAX and display as a tooltip</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-jquery fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">How to query a database with AJAX and display as a tooltip</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">September 11, 2012</span>
+           under Web Development
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          6 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>This post began as an answer on Stack Overflow to a question on &#8216;<a href="http://stackoverflow.com/questions/12291654/netflix-style-tooltip-with-ajax-jquery-php-and-mysql/12366841#12366841" target="_blank">How to query a database with AJAX and display as a tooltip</a>&#8216;. I have put the answer here for future reference.</p>
+
+<p>The original question asked for more information on the steps :</p>
+
+<ul>
+<li>  User clicks on a link</li>
+<li>  Variable passed to external file using AJAX</li>
+<li>  External file uses variable to query MySQL database</li>
+<li>  Query result appears in tooltip</li>
+</ul>
+
+<p>and so I have turned each step into a heading and added content to each to describe the process.</p>
+
+<h3>User clicks on a link</h3>
+
+<p>So the first thing you need is a bit of front end code which tells a link to make an ajax request and not an actual link. I would recommend that you use jQuery to do the hard work for you so you will first need to include the jQuery script in your page if you haven&#8217;t already, to do this add this line to the head of your HTML file.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://code.jquery.com/jquery-latest.min.js"</span><span class="nt">&gt;</span><span class="err">
+</span></code></pre></div>
+<p>Next you will need to give the link a class so for example your link may look like</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"ajax.php?var=value"</span> <span class="na">class=</span><span class="s">"ajax_link"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+<p>You will see that the link will be to the ajax page which is going to provide the data, you are passing a variable on to that page called var via GET which we will come to later and you also have the class set to &quot;ajax_link&quot; which we will use to reference the link from jQuery.</p>
+
+<p>Now you will need to write some jQuery to handle the link. To do this you will need to open up a <code>&lt;script language=&quot;javascript&quot;&gt;</code> tag at the end of your body and put some code along the lines of:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">".ajax_link"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">//Stops link from changing the page</span>
+
+    <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'href'</span><span class="p">);</span> <span class="c1">//Gets link url</span>
+
+    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span> <span class="c1">//Make the ajax request</span>
+      <span class="na">url</span><span class="p">:</span> <span class="nx">link</span><span class="p">,</span>
+      <span class="na">cache</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">html</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">//On complete run tooltip code</span>
+
+        <span class="c1">//Display tooltip code goes here, returned text is variable html</span>
+
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>I will come back to the tooltip code later on.</p>
+
+<h3>Variable passed to external file using AJAX</h3>
+
+<p>Now we are going to need to create the PHP file ajax.php, this file will need to connect to the database and make any queries necessary. First I will start the file and get the variable from the GET. See the code below.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php">$var = mysql_real_escape_string($_GET['var']);<span class="nt">&lt;/pre&gt;</span>
+</code></pre></div>
+<p>This will create the variable $var and it will contain the value &#8216;value&#8217; as was set in the above HTML link. You will probably want to escape the value, do some validation to protect yourself from injection but I will not cover that here.  </p>
+
+<p><strong>UPDATE:</strong> Added most basic string escape function to stop people from copying and pasting and opening themselves up to injection but I would recommend seeing <a title="Stack Overflow MySQL Injection" href="http://stackoverflow.com/a/7528395/1003288" target="_blank">this</a> stack overflow answer for more information.</p>
+
+<h3>External file uses variable to query MySQL database</h3>
+
+<p>Next you will want to connect to and query the database and then echo what ever it is that you have returned. Here is some code for returning the value of column &#8216;information&#8217; from a table called &#8216;data_table&#8217; where some value equals your $var.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php">//connection to the database
+$dbhandle = mysql_connect($hostname, $username, $password)
+  or die("Unable to connect to MySQL");
+
+//select a database to work with
+$selected = mysql_select_db("examples",$dbhandle)
+  or die("Could not select examples");
+
+//execute the SQL query and return records
+$result = mysql_query("SELECT information FROM data_table WHERE value='$var'");
+//fetch tha data from the database
+while ($row = mysql_fetch_array($result)) {
+   echo $row{'information'};
+}
+
+//close the connection
+mysql_close($dbhandle);<span class="nt">&lt;/pre&gt;</span>
+</code></pre></div>
+<p>For more information on querying a database please see <a href="http://webcheatsheet.com/php/connect_mysql_database.php" target="_blank">this tutorial</a>.</p>
+
+<h3>Query result appears in tooltip</h3>
+
+<p>Once you have both of these pages set up the first page will send some value to the ajax page, the ajax page will echo the corresponding information from the database which will be received by the first page in the JavaScript variable <strong>html</strong>.</p>
+
+<p>The final stage of this is now to display the returned text as a tooltip. First it may be a good idea to test that your pages are working and one easy way to do this is to display an alert with the returned information in (you could also log to the console). You would do this by adding some code to the ajax .done function like so:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">html</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">"text: "</span> <span class="o">+</span> <span class="nx">html</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Once you have done this you should be able to open up the page, click the link and you should see an alert box pop up showing the required text. If there is nothing after the &#8216;text:&#8217; in the alert then something has gone wrong and you may want to check the code is correct. If it has succeeded then continue on to displaying the tooltip.</p>
+
+<p>There are many available jQuery tooltip plugins one of which is called <a href="http://craigsworks.com/projects/qtip2/" target="_blank">qTip</a>. This will allow you to create the tooltips and display them when clicking on them. You will need to download the JavaScript file and related CSS for the tooltips and then add some code into the .done function to create and display the tooltip.</p>
+
+<p>To add qTip to your page place visit the qTip site and download the latest version of the js and the css. Then you must reference the files in the head like this:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"jquery.qtip.min.css"</span> <span class="nt">/&gt;</span>
+</code></pre></div>
+<p>and the js like this:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"jquery.qtip.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<p>This assumes that the css and js files are in the same folder as your index page, if they aren&#8217;t please amend these links to point to where you have put those files.</p>
+
+<p>Now all you need to add to the .done function is the following:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">qtip</span><span class="p">({</span>
+    <span class="na">content</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">text</span><span class="p">:</span> <span class="nx">html</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">qtip</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</code></pre></div>
+<p>This code will create a qTip containing whatever was returned from your AJAX request. Then once the tooltip has been created it will toggle it to show the tooltip initially once clicked. Then the tooltip will show/hide when you hover on/off.</p>
+
+<p>For more information on styling a qTip see their website.</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            AJAX, Guide, JavaScript, jQuery, MySQL, PHP
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2012/2012-09-11-ajax-database-tooltip.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

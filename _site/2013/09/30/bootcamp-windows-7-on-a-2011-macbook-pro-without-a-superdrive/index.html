@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootcamp Windows 7 on a 2011 MacBook Pro without a SuperDrive</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-bootcamp fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Bootcamp Windows 7 on a 2011 MacBook Pro without a SuperDrive</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">September 30, 2013</span>
+           under Apple
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          8 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>So recently I swapped out the SuperDrive in my early 2011 MacBook pro for an additional HDD caddy. I then moved my 1TB HDD into the caddy and put a new SSD in the HDD slot. As I was messing around with hard drives I decided to go for a fresh install of OS X and Windows on the SSD.</p>
+
+<p>However I found that reinstalling Windows without the internal SuperDrive was a major pain. For some reason Apple have put in some restrictions which means that if the machine originally had an internal SuperDrive then it is not possible to install from a USB stick or from a USB SuperDrive. However if the machine didn&#8217;t come with an internal drive like a MacBook air then the USB SuperDrive will work fine. This is most likely to be down to the firmware on each machine.</p>
+
+<p>So in order to get Windows installed on my MacBook I had two options, put the SuperDrive back in (which wasn&#8217;t really an option as I had put the drive in an external caddy which doesn&#8217;t look like it will be easy top open again) or to find another method. So here are the steps I followed to successfully install Windows, I&#8217;ll document them exactly as I know they work but I&#8217;ll make a note on sections which are likely to be optional.</p>
+
+<h3>What you&#8217;ll need</h3>
+
+<ul>
+<li>  A windows 7 or 8 install media ISO file</li>
+<li>  <a title="VMWare Fusion" href="http://www.vmware.com/uk/products/fusion/" target="_blank">VMWare Fusion</a> v5 (free trial is sufficient) (v6 is known not to work with this method)</li>
+<li>  <a title="Paragon NTFS" href="http://www.paragon-software.com/home/ntfs-mac/" target="_blank">Paragon NTFS</a> (free trial is sufficient)</li>
+<li>  <a title="rEFIt" href="http://refit.sourceforge.net/" target="_blank">rEFIt</a> (an addition to the Mac EFI bootloader) (probably optional but removal not tested)</li>
+<li>  a USB DVD drive and physical Windows disc may be helpful</li>
+</ul>
+
+<h3>Method</h3>
+
+<p>So initially I put a Windows 7 DVD in my USB SuperDrive and began the usual process of installing Windows using the bootcamp assistant. I launched the bootcamp assistant from Applications &gt; Utilities and used it to partition the HDD. Now the assistant will complain if you don&#8217;t have the Windows media attached so it may be worth plugging in a USB DVD drive with a Windows disk in for this part, we won&#8217;t actually use this to install Windows. If you try to boot from the USB attached DVD you will most likely just get a flashing white cursor in the top left corner.</p>
+
+<p><img src="http://i.imgur.com/Be3I5gL.png" alt="VMware Fusion"></p>
+
+<p>Now the posts I found online suggested using VMWare to use the partition as the HDD for a Virtual machine rather than a normal Virtual Disk file. This way you can partially install Windows onto the partition and then reboot natively to that partition and complete the installation. Now in order to do this you will need to install rEFIt which is an addition to the normal EFI bootloader, this is required as the partially installed Windows will not show up in the normal menu you get when holding alt when booting. So you will need to download rEFIt and install it.</p>
+
+<p>Next you will need to install a trial of VMWare fusion 5 and create the VM linked to the partition. The guide I followed to do this can be found <a title="Installing Windows on a Macbook Pro without a Superdrive" href="http://www.andrewsavory.com/blog/2011/2156" target="_blank">here</a>. The important section from this article is as follows (see original article for screenshots)</p>
+
+<p>You first need to configure VMWare to use the Boot Camp partition &#39;raw&#39;, as a real disk rather than a virtual disk. To do this, open up a terminal and type:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir Virtual<span class="se">\ </span>Machines
+/Applications/VMware<span class="se">\ </span>Fusion.app/Contents/Library/vmware-rawdiskCreator print /dev/disk0
+</code></pre></div>
+<p>The output will be something like:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">Nr      Start       Size Type Id Sytem
+-- ---------- ---------- ---- -- ------------------------
+ 1          1     409639 BIOS EE Unknown
+ 2     409640  583984384 BIOS AF HFS+
+ 3  584656896  392116224 BIOS  B Win95 FAT32
+</code></pre></div>
+<p>Identify the correct drive number on the left - as a guideline, it&#39;s probably listed as FAT32 or NTFS formatted under &#39;Sytem&#39; (sic).</p>
+
+<p>Next, create the raw disk description:</p>
+
+<p>This will give you two raw disk description files</p>
+
+<p>Next, start VMWare Fusion and select &quot;New...&quot; from the File menu. Select &quot;Continue without disc&quot;</p>
+
+<p>On the installation media page, drag and drop the windows7.vmdk file previously created onto the &quot;Use an existing virtual disk&quot; drop-down (where it says &quot;None&quot;). You can&#39;t just select the disk by clicking the radio button and then the drop-down, because the disk files are in a different format and will show up greyed-out.You will be prompted to convert the virtual disk to a newer format. Select &quot;Don&#39;t Convert&quot;. If you select &quot;Convert&quot;, you will get an error about insufficient permissions. It works just fine without converting. If all went well, you should see your vmdk listed and be able to click Continue. Accept the defaults for the operating system and version, and click Continue. On the last page, click &quot;Customize Settings&quot;, accept the default save filename and click &quot;Save&quot;. You&#39;ll then be taken to the Customize Settings screen, where you want to configure the ISO to boot from. Click on the CD/DVD (IDE) option and then select the location of your Windows 7 ISO</p>
+
+<p>Go through preliminary install up to the point that Windows does the first reboot. At this point, power down the VM, and reboot the computer.</p>
+
+<p>Now once completing this you may find that this guide works perfectly for you and if you reboot and select Windows from the rEFIt menu the installation may continue, if that&#8217;s the case then fantastic, but if like me you encounter an error then read on.</p>
+
+<p>When I followed that guide and rebooted I was confronted with the message &#8220;Could not find file winboot.exe&#8221;. Now this issue is caused by the Windows boot record pointing at the wrong partition. I guess this is caused by the fact that the number and possibly order of the partitions is different on the physical machine to when it is accessed form the VM. This problem can usually be fixed by loading up the recovery console from the installation DVD and repairing the MBR but the whole reason we&#8217;re doing this is because we can&#8217;t boot from the DVD so we&#8217;re going to have to blow away this failed installation and start again from a different angle, but don&#8217;t worry this wasn&#8217;t for nothing, what this has achieved is it has made this partition bootable so what we will do now is copy the installation media to this bootable partition and then it form there onto itself.</p>
+
+<p><img src="http://i.imgur.com/rQnMhnD.png" alt="Paragon NTFS"></p>
+
+<p>To do this you will need to be able to modify the NTFS partition from OS X. So boot back into OS X and install Paragon NTFS, you can get a free trial of this which will be fine. Once you&#8217;ve installed that you need to open the Windows partition in finder and drag it&#8217;s entire contents to the trash and then empty the trash to delete everything. This will take a few minutes but you will be left with an empty bootable NTFS partition.</p>
+
+<p>Next you need to open the Windows ISO image in disk utility (right click and open with disk utility) and then in disk utility select the ISO and click mount. Go back to finder and open a second window, one with the mounted ISO and one with the NTFS partition. Select everything in the ISO and drag it all to the NTFS partition. Once this has copied you should be able to reboot and select Windows in rEFIt again and now this time instead of getting the winload.exe issue it will boot up into the Windows installation media.</p>
+
+<p>You can now go through the installation as normal selecting the NTFS partition you are currently booted form as the install location, it may whine about it not being empty but you are perfectly fine to install Windows along side the installation media. Once this completes it should reboot again and you will have to select Windows again in rEFIt. It will complete the installation and you should end up with a full Windows installation.</p>
+
+<p>If you like now you can navigate to the C: drive in Windows and locate all the parts of the install media and delete them (just leave the boot directory well alone). You may also want to reduce the timeout of the boot menu as it originally has a 30 second count down allowing you to choose between Windows 7 and the install media.</p>
+
+<p>Now that you have Windows installed you can boot back into OS X and uninstall VMWare fusion and Paragon NTFS as we don&#8217;t need these anymore.</p>
+
+<p>Finally the default EFI bootloader should detect it when holding alt during boot so you could remove rEFIt if you like. I&#8217;ve chosen to keep it on mine though as it provides a nice boot interface to select your OS (especially if you customize it).</p>
+
+<p>And that&#8217;s it. If you have any questions about this or need any help drop a comment below and I&#8217;ll do my best to give a helpful response.</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            mac, os x, paragon ntfs, rEFIt, ssd, USB SuperDrive, vmware, windows
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2013/2013-09-30-bootcamp-windows-7-on-a-2011-macbook-pro-without-a-superdrive.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

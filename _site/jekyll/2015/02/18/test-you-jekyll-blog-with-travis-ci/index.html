@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test your Jekyll blog with Travis CI</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-jekyll fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Test your Jekyll blog with Travis CI</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">February 18, 2015</span>
+           under Jekyll
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          5 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><h3>Introduction</h3>
+
+<p>Testing your blog may sound like an odd thing to do, but if you&#39;re running a <a href="http://jekyllrb.com/">Jekyll</a>
+blog hosted on GitHub it is simple to set up and really useful for notifying you about broken links
+and other issues.</p>
+
+<h2>Things you should test</h2>
+
+<p>You should check for good practice items in your article which you might forget to do.
+Things like including alt tags
+for your images or making sure your links actually go somewhere. These are the
+kind of things you leave blank while writing and think &quot;I&#39;ll fill that in later&quot;
+and then never do so.</p>
+
+<p>There are also things which may break over time without you realising. This is mainly
+external urls and image links which may have changed and no longer exist.</p>
+
+<p>Finally you should ensure your html complies to standards. This is more to do with
+the Jekyll theme rather than the articles you&#39;re writing but you always
+want to ensure your website is going to display correctly for everyone.</p>
+
+<h2>Travis CI</h2>
+
+<p>This is where <a href="https://travis-ci.org">Travis CI</a> comes in. Travis CI is a continuous integration platform which
+watches for you to commit code to your GitHub repository and then runs your code
+on an external server to test and even deploy it for you.</p>
+
+<p>We wont discuss how to get started with Travis here so you may want to refer
+to their <a href="http://docs.travis-ci.com/user/getting-started/">getting started guide</a>. As Jekyll is ruby based you&#39;ll want to read
+the <a href="http://docs.travis-ci.com/user/languages/ruby/">ruby version</a> of the guide.</p>
+
+<p>You tell Jekyll what to do with your code by including a YAML file in your repository
+called <code>.travis.yml</code>. We will be specifying ruby as the language which will cause Travis
+to ensure ruby is installed and will automatically install any gems you specify in
+a file called <code>Gemfile</code>.</p>
+
+<p>A <code>Gemfile</code> is basically a set of dependencies for your application, if you haven&#39;t got one
+in your Jekyll blog repository you&#39;ll want to create one with the following content.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">source 'https://rubygems.org'
+gem 'github-pages'
+gem 'html-proofer'
+</code></pre></div>
+<p>This tells Travis to use <a href="http://bundler.io/">bundler</a> to install the GitHub pages dependencies which include
+Jekyll and also a tool called HTML Proofer which we will use to test our blog.</p>
+
+<p>So once Travis has ensured ruby is installed to the version we want and the gems are installed
+we then need to specify what commands we want it to run. We want it to build our Jekyll
+site and then run HTML proofer, to do this your <code>.travis.yml</code> will want to look
+something like this.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">language: ruby
+rvm:
+  - 2.1
+script:
+  - bundle exec jekyll build
+  - bundle exec htmlproof ./_site --only-4xx --check-favicon --check-html
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+</code></pre></div>
+<p>This will build your site into <code>_site</code> on the Travis server and then run HTML Proofer
+on the generated HTML.</p>
+
+<h2>HTML proofer</h2>
+
+<p><a href="https://github.com/gjtorikian/html-proofer">HTML proofer</a> will by default follow all of the links in your website and ensure
+that the destination exists. It will ensure all the referenced images exist and also
+check whether you have specified alt tags for those images.</p>
+
+<p>It also has some optional extended functionality which I have enabled in my tests.</p>
+
+<p>The first is <code>--only-4xx</code>. This tells HTML Proofer to only throw an error when it
+hits an error message in the 400-499 range. This means it ignores errors like 500 or 503
+on external urls which are usually temporary issues and down to the external service
+to resolve, we don&#39;t want things which are out of our control to fail our build.</p>
+
+<p>Next is <code>--check-favicon</code>. This does exactly what it says on the tin, it ensures
+you have correct favicons configured for your site.</p>
+
+<p>Last is <code>--check-html</code>. This uses <a href="http://www.nokogiri.org/tutorials/ensuring_well_formed_markup.html">Nokogiri</a> to check that your HTML is well formed.
+It will throw errors when you do things like not closing divs correctly or double
+declaring attributes. As I said before this is down to your theme rather than
+your content but you still want to test it.</p>
+
+<h2>Pull Requests</h2>
+
+<p>Setting this up means that whenever you commit to your Jekyll blog it will test
+you code and make sure it is correct, if it isn&#39;t it will send you an email saying
+that the build has failed and will allow you to see the output of HTML Proofer
+so that you can fix the problem.</p>
+
+<p>It will also do this when someone (or you) submits a pull request. Travis will see the pull request,
+test the code and then advise within the pull request window whether it is safe to merge.</p>
+
+<p><img src="http://i.imgur.com/IxsaFSe.png" alt="Pull request waiting to be checked by Travis CI"></p>
+
+<p>So if the build fails you will get a message like this:</p>
+
+<p><img src="http://i.imgur.com/aThKVyp.png" alt="Pull request failed by Travis CI"></p>
+
+<p>Or if it succeeds you get given the go ahead to merge:</p>
+
+<p><img src="http://i.imgur.com/kLZlnlD.png" alt="Pull request successfully checked by Travis CI"></p>
+
+<p>If you&#39;re following a GitHub workflow using pull requests this can be a great way to
+make sure that everything which goes into the master branch is already tested.</p>
+
+<h2>Conclusion</h2>
+
+<p>This is just one simple way of testing your blog. If you wanted to take it further
+you could get Travis to install additional tools and scripts for checking spelling and grammar,
+ensuring your images are hosted on a CDN or even making sure you <a href="http://zachholman.com/posts/how-github-writes-blog-posts/">don&#39;t have any emoji in your article</a>.</p>
+
+<p>If you don&#39;t want to host your website on GitHub Pages you can also get Travis
+to deploy your <code>_site</code> to another server such as a VPS or maybe an Amazon S3 Bucket.</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            jekyll, unit test, travis ci, github
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2015/2015-02-18-test-you-jekyll-blog-with-travis-ci.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

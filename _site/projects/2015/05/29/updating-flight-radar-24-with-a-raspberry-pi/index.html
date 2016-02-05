@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Updating flightradar24 with a Raspberry Pi</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-plane fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Updating flightradar24 with a Raspberry Pi</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">May 29, 2015</span>
+           under Projects
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          3 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>You can feed data into <a href="http://www.flightradar24.com/">flightradar24</a> (from now on referred to as fr24) simply using a Raspberry Pi and a cheap USB DVB-T tuner.</p>
+
+<h2>How fr24 tracks planes</h2>
+
+<p>All the data in fr24 is collected by volunteers around the world using some very simple radio equipment. Most modern planes constantly broadcast information about themselves, including their callsign, altitude, longitude and latitude. The radio broadcast signal is called <a href="http://en.wikipedia.org/wiki/Automatic_dependent_surveillance-broadcast">ADS-B</a>, which is broadcast on a radio frequency right next to the frequency range used by terrestrial digital video broadcasting (<a href="http://en.wikipedia.org/wiki/DVB-T">DVB-T</a>). DVB-T is commonly used in europe and other parts of the world and therefore it is very easy to get hold of a USB tuner. These can be modified (in software) to pick up data from ADS-B to send on to fr24.</p>
+
+<h2>Equipment</h2>
+
+<p>All you need to collect data and send it to fr24 is a computer capable of utilising a USB DVB-T tuner and the tuner itself. One of the cheapest computers on the market at the moment, both in terms of upfront cost and electricity usage, is the <a href="https://www.raspberrypi.org/">Raspberry Pi</a>. The Pi is perfectly capable of running a DVB-T tuner so it will be ideal for this project but there is nothing stopping you using a Beaglebone, linux server, Windows PC or whatever you have lying around and are happy to keep on 24/7.</p>
+
+<p>Sadly not all USB DVB-T tuners are capable of picking up the 1090Mhz broadcast so you need to make sure your tuner has either the RTL2832U/E4000 or RTL2832U/R820T chip/tuner combinations. These are pretty cheap, I got mine for &pound;6.98 on <a href="http://www.ebay.co.uk/itm/201338088784">eBay</a>. The antenna which comes with the tuner is fine but you might want to upgrade to a <a href="http://shop.jetvision.de/epages/64807909.sf/en_GB/?ObjectPath=/Shops/64807909/Products/67100">bigger one</a>.</p>
+
+<h2>Preparing up your Pi</h2>
+
+<p>This guide is based on a fresh install of <a href="https://www.raspbian.org/">raspbian</a> so make sure you&#39;ve got that set up already.</p>
+
+<h2>Installing the drivers</h2>
+
+<p>To receive ADS-B signals through your DVB-T tuner you need to install some custom drivers.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">apt-get update &amp;&amp; apt-get install cmake gcc pkg-config libusb-1.0 make git-core libc-dev
+git clone git://git.osmocom.org/rtl-sdr.git
+cd rtl-sdr
+mkdir build
+cd build
+cmake ../ -DINSTALL_UDEV_RULES=ON
+make &amp;&amp; make install
+ldconfig
+</code></pre></div>
+<p>You&#39;ll also have to blacklist the default driver otherwise you&#39;ll get conflicts.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">echo "blacklist dvb_usb_rtl28xxu" &gt; /etc/modprobe.d/dvb-t.conf
+</code></pre></div>
+<h2>Installing fr24feed</h2>
+
+<p>Now your tuner is set up you&#39;ll need the monitoring software created by fr24 called fr24feed. In the past you will have needed to install dump1090 (the software which speaks to the tuner) and then install fr24feed which takes the data from dump1090 and sends it on to fr24&#39;s servers. However fr24 have now packaged dump1090 into fr24feed so the only thing you&#39;ll need to do is download the <code>.deb</code> and install it. Check the <a href="http://feed.flightradar24.com/raspberry-pi/">fr24 website</a> for the latest version.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">wget http://feed.flightradar24.com/raspberry-pi/fr24feed_x.x.x-x_armv6l.deb
+sudo dpkg -i fr24feed_*_armv6l.deb
+</code></pre></div>
+<h2>Configure fr24feed</h2>
+
+<p>Finally you need to register your receiver with fr24 and configure the software.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">sudo fr24feed --signup
+</code></pre></div>
+<p>You&#39;ll be asked a few questions, just fill in your details, select yes for the data feeds and choose <code>Malcolm Robb&#39;s fork</code> for the dump1090 variant.</p>
+
+<p>Once this is done you can test whether your radar is working by running <code>service fr24feed status</code>. You should see output similar to this</p>
+<div class="highlight"><pre><code class="language-" data-lang="">pi@raspberrypi ~ $ service fr24feed status
+[ ok ] FR24 Feeder/Decoder Process: running.
+[ ok ] FR24 Stats Timestamp: 2015-06-03 20:44:05.
+[ ok ] FR24 Link: connected [UDP].
+[ ok ] FR24 Radar: T-EGTE25.
+[ ok ] FR24 Tracked AC: 4.
+[ ok ] Receiver: connected (3117 MSGS/0 SYNC).
+</code></pre></div>
+<p>Congratulations, if you can see output similar to the above then you have a working feed into flightradar24 running on your Raspberry Pi.</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            flightradar24, fr24, raspberry pi
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2015/2015-05-29-updating-flight-radar-24-with-a-raspberry-pi.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>
