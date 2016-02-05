@@ -1,56 +1,28 @@
-# Carte Noire
+# www.jacobtomlinson.co.uk [![Build Status](https://travis-ci.org/jacobtomlinson/jacobtomlinson.github.io.svg?branch=master)](https://travis-ci.org/jacobtomlinson/jacobtomlinson.github.io)
 
-A simple Jekyll theme for blogging. Not named after the coffee.
+The code which powers www.jacobtomlinson.co.uk
 
-![Homepage](http://i.imgur.com/xlmHArV.png)
-
-### Article
-![Article](http://i.imgur.com/8rD8FfC.png)
-
-### Disqus Comments
-![Comments](http://i.imgur.com/TBZHQwF.png)
-
-### Posts grouped by year
-![All Posts](http://i.imgur.com/9bNs2Sc.png)
-
-### JavaScript Search
-![Search](http://i.imgur.com/yQqMeSl.png)
-
-### Menu by mmenu
-![Menu](http://i.imgur.com/SClrNSH.png)
+## Theme
+This blog is using my own [Carte Noire theme][1].
 
 ## Contact
-If you wish to contact me regarding this theme please raise an issue on GitHub,
+If you wish to contact me regarding my website please raise an issue on GitHub,
 tweet me [@_jacobtomlinson](http://www.twitter.com/_jacobtomlinson) or email me
 [jacob@jacobtomlinson.co.uk](mailto:jacob@jacobtomlinson.co.uk).
 
 ## Contribution
-Pull requests are very welcome.
+If you see any errors in my website content or feel you could make improvements then please
+feel free to open an issue or raise a pull request. Or if you wish just leave a comment
+on the relevant page.
 
-## Theme
-This jekyll theme has been created from scratch. Ideas and inspiration are taken
-from other places but the code is my own.
-
-## Tools and Libraries
-The following tools and libraries are used in this theme
-
-### JavaScript
- * [jQuery](http://jquery.com/)
- * [MMenu](http://mmenu.frebsite.nl/)
- * [HighlightJS](https://highlightjs.org/)
- * [Simple Jekyll Search](https://github.com/christian-fei/Simple-Jekyll-Search)
-
-### CSS
- * [Bootstrap](http://getbootstrap.com/)
- * [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
-
-### Social
- * [AddThis](http://www.addthis.com/)
- * [Disqus](https://disqus.com/)
-
-### Other
- * [Real Favicon Generator](http://realfavicongenerator.net/)
- * [Google Analytics](http://www.google.com/analytics/)
+If you notice any bugs relating to the theme or display of the website please raise an issue in the
+[Carte Noire repository][1].
 
 ## License
+All written works and data are not for redistribution without permission, but feel free to link back.
+
 The jekyll theme, HTML, CSS and JavaScript is licensed under GPLv3 (unless stated otherwise in the file).
+
+See the LICENSE file for more information.
+
+[1]: https://github.com/jacobtomlinson/carte-noire

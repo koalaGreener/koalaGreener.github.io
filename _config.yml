@@ -24,8 +24,14 @@ footer_left: "<i class=\"fa fa-heart\"></i>"
 footer_right: "Support by <a href=\"https://github.com/jacobtomlinson/carte-noire\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 permalink: pretty
-exclude: [vendor]
+exclude: [".travis.yml",
+          ".gitignore",
+          "Gemfile*",
+          "README.md",
+          "LICENSE",
+          "Rakefile",
+          "CNAME"]
