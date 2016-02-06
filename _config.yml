@@ -1,10 +1,10 @@
 # Site settings
 title: "Weijie HUANG"
 email: tracy4816@gmail.com
-description: "A dark blog theme for Jekyll."
+description: "Weijie Huang's blog"
 baseurl: ""
 url: "http://koalagreener.github.io"
-title_description: "I am a postgraduate student studying in UCL."
+title_description: "Hello, I am a postgraduate student studying in UCL."
 title_image: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/082/349/2038358.jpg"
 google_analytics: None
 disqus_account: None
