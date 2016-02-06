@@ -5,9 +5,26 @@
     <description>A dark blog theme for Jekyll.</description>
     <link>http://koalagreener.github.io/</link>
     <atom:link href="http://koalagreener.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 05 Feb 2016 23:54:37 +0000</pubDate>
-    <lastBuildDate>Fri, 05 Feb 2016 23:54:37 +0000</lastBuildDate>
+    <pubDate>Sat, 06 Feb 2016 18:10:06 +0000</pubDate>
+    <lastBuildDate>Sat, 06 Feb 2016 18:10:06 +0000</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
+    
+      <item>
+        <title>第一篇博文</title>
+        <description>&lt;p&gt;最近在完成NLP作业的过程中,多次在寻找资料的过程中点入不同的网络页面,其中有几篇摘要关于神经网络的资料都是用的github pages来驱动,于是我也思考能不能也快速搭建一个类似的页面.&lt;/p&gt;
+
+&lt;p&gt;事实上之前我也试过,但是当时并不清楚Jekyll是如何使用的,这次静下心来阅读完多篇初始化材料,终于了解到大概的过程,于是才有了这么一个页面.&lt;/p&gt;
+
+&lt;p&gt;实话说一直听说markdown语法,但是却一直不知道如何使用,比起看看文档的&amp;quot;学习&amp;quot;,大概还是要亲自下手写一写才知道这么一个语法是什么.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 06 Feb 2015 00:00:00 +0000</pubDate>
+        <link>http://koalagreener.github.io/2015/02/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87/</link>
+        <guid isPermaLink="true">http://koalagreener.github.io/2015/02/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87/</guid>
+        
+        <category>blog</category>
+        
+        
+      </item>
     
   </channel>
 </rss>
