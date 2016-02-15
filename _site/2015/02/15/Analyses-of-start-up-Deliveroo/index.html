@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyses of start-up Deliveroo</title>
+<meta name="description" content="Weijie Huang's blog">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Weijie HUANG</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="https://www.linkedin.com/in/WeijieHuangUCL" target="_new"><i class="fa fa-linkedin"></i></a>
+  <a href="https://github.com/koalaGreener" target="_new"><i class="fa fa-github-alt"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+
+      <h1 class="header" itemprop="name">Analyses of start-up Deliveroo</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Weijie Huang</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">February 15, 2015</span>
+          
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          19 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><h1>Background and Introduction</h1>
+
+<h2>Background</h2>
+
+<p>With the development of O2O E-commerce market, the food delivery and takeaway industries are recognized as one of the potential markets. According to Statista’s report [1] in 2013, the takeout and food delivery occupied 18% of the fast food industry in U.S., which was about 34.2 billion U.S. dollars. Moreover, also in an annual report published by Analysys [2], the online food delivery industry in China reached 6.96 billion U.S. dollars in 2015. </p>
+
+<p>Currently, there are two types of food delivery companies. The companies like “Just Eat”, “GrubHub” only provide a platform for restaurants and consumers to order the food, but the restaurant need to deliver the meal themselves, and we called that mode “light platform”. Both of them went public in 2014. Another type of company is “heavy platform”, likes “ele.me” which own their delivery team to finish the delivering process. This company received a capital injection of series F with 630 million, and their valuation was $3 billion at this moment [7].</p>
+
+<h2>Introduction</h2>
+
+<p>Deliveroo is one of the food delivery platforms that owns their delivery team. It was founded in London by William Shu and Greg Orlowski in 2013 [22]. According to the information on their LinkedIn page [3][4], William Shu worked as an analyst for ESO Capital and Morgan Stanley, and Greg Orlowski was a developer and architect in Objective Arts, which mean they have great experiences in financial and computing area separately. </p>
+
+<p>Unlike the “Just Eat”, “GrubHub” that I mentioned above, Deliveroo focus on the fancy restaurant.  William Shu, one of their founder, once said to Wired [20], “Customer choice has been limited to restaurants that already provide a takeaway service, which have tended to be on the lower end of the scale; we bring people high-quality local cuisine from the places that they know and love.” Most of these restaurants do not provide delivery services, so they can not join the platforms without an individual delivery team. However, Deliveroo provides a connection between classy restaurant and consumers, which fill in this gap. A related research in 2013 by Hwang [5] indicated that the consumers prefer to choose the restaurant they tasted and felt great before. Moreover, that is Deliveroo’s advantage, they can provide delicious food in a classy restaurant and other competitors cannot. </p>
+
+<p>Also, with the help of the advanced algorithm and efficient arrangement, Deliveroo can deliver the food from the restaurant to the consumers in just thirty-two minutes, while the estimated average time of other platforms is more than fifty-five minutes [6]. </p>
+
+<p>What’s more, Deliveroo provides job opportunity to people as a driver likes other extraordinary start-ups, Uber, Airbnb. The job is quite flexible and offered with a competitive pay which will make the delivery services more efficient [23].</p>
+
+<p>Finally, according to Crunchbase [7], Deliveroo is in Series D, $100 million funding at this stage.</p>
+
+<h2>Structure</h2>
+
+<p>In the following essay, I will analyze Deliveroo in three parts. </p>
+
+<p>The first part is based on the business model canvas. The canvas provides different views of a start-up in the early stage, such as customer segment and value proposition and so on. Through those segments, we can gain a clear understanding of the company’s mode. </p>
+
+<p>While in the second part, this essay provides a SWOT (Strengths, Weaknesses, Opportunities and Threats) analyses. It can easily compare to other competitors in the same area, and find out potential risks. Moreover, the macro market analysis will also be discussed here, so that we can gain a better understanding in this field.</p>
+
+<p>In the final part of this essay, I will sum up the content and figures that came from previous two parts.</p>
+
+<h1>The Business Model Canvas</h1>
+
+<p>According to Barquet and De Reuver, “The Business Model Canvas is a strategic management and lean startup template for developing new or documenting existing business models [8] [9].” Usually, the chart is constituted of nine parts, and it helps the start-up to align and steady the trade-off. The detailed BMC have listed it in the appendix.</p>
+
+<p><img src="http://i.imgur.com/wfoTOXI.png" alt="The Business Model Canvas">
+Figure 1 [10]: A well-structured diagram can provide a clear visual representation of the business model, and it help the start-up align their trade-off at the very beginning.</p>
+
+<h2>Customer segment and Value proposition</h2>
+
+<p>Deliveroo is a food delivery platform that their profits are from both of the restaurant and the people who order the food on this platform. </p>
+
+<p>For the restaurant, especially the classy one, those reasons can perfectly explain why lots of fancy restaurants would like to enter Deliveroo. Firstly, they can sell more products via this platform, and save money on hiring waiters or waitress. Also, they do not need to pay some extra money for hiring drivers, because Deliveroo provides so. Besides, most of the decent restaurant owned their IT system, and Deliveroo can easily access their data to help them be efficient. Finally, the classy restaurants usually possess more profit than the normal one, and they are delighted to share some profit with Deliveroo. </p>
+
+<p>For the customers, they also have several reasons to order food in Deliveroo’s platform. Firstly, they do not have to cook at home, and it can save sorts of time so that they can concentrate on their work continuously. Secondly, they save the time in a supermarket to choose the cooking material. Besides, Deliveroo provides a variety of choice of classy restaurant, and some of the restaurants are the customers’ priority choice, which is also an exclusive offer in Deliveroo’s list.</p>
+
+<p>Deliveroo now represents the high-quality restaurant, accurate delivery estimate time, exclusive choices of restaurants, while other platforms lack these traits. The main problem is that Deliveroo own their pre-trained delivery team, and that is why the user experience on Deliveroo is predictable and reliable.</p>
+
+<h2>Channels</h2>
+
+<p>The main channels for the customer to use the ordering service are via mobile application and website. All of the orders are delivery automatically from Deliveroo’s server to the restaurant’s IT system, so it is more efficient than using the dialing service.</p>
+
+<h2>Customer relationships</h2>
+
+<p>The business model of ordering food online is Online to Offline(O2O) mode. So the relationship between customers and platform is a multilayer. </p>
+
+<p>In the Online procedure, there are several factors affect the client&#39;s relationship. For example, an easy to used user interface, a convenient and safe payment method, and an appropriate recommendation menu. These factors are quite important for the user experience, and affect the user’s choice between different competitors. </p>
+
+<p>In the offline procedure, the delivery speed, uniform dressing style and the taste of the food can impress the customers. The primary impression is even important than the taste of the food. Because the users may order other restaurants if the food did not taste good, but usually they will not change the platform due to the inconvenience of registering an account and re-enter the payment [12]. </p>
+
+<h2>Key Resources, Partners and Activities</h2>
+
+<p>To maintain a satisfied online service, one of the key resources is the food ordering platform. It is the entrance to the whole service, and Deliveroo is required to attract both the restaurant and users keep using this platform. That is a topic related to usability and Human–computer interaction. However, some of the online social networks lost their users even they work excellent for the services, such as Twitter and Myspace.</p>
+
+<p>So it is also important for the platform to cooperate with the partners, the drivers. According to The Guardian [13], drivers that work for Deliveroo can earn at least 80 pounds per day. Moreover, usually, the price for a restaurant to hire a driver is about 50 pounds, which means the restaurants can now provide delivery service without paying so, and also, the drivers can earn a decent salary than before. </p>
+
+<p>The activity is not that important for food delivery platform. However, as the news stated in China [14], three main food delivery platforms in China, “Hungry?”, “MeiTuan”, “Baidu Food ordering” provides from 30% discount to 70% discount on every order to attract users in 2014. Moreover, those activities destroy all the other competitors during that time. Furthermore, of course, those activities can not copy and paste in other countries, since there are more than 1.3 billion potential users in China. However, one of the companies, “Just-Eat”, prefer to advertise on game console platforms such as Xbox and PS4, so that they can match the target players easily.   </p>
+
+<h2>Cost and revenue streams</h2>
+
+<p>It is the same as other companies, Deliveroo has to spend part of the money on the rental of home office, IT facilities, software initial fee and so on. Moreover, Deliveroo is a heavy platform type of delivery company, so they have to spend money on hiring drivers and training them. The cost may be high at the very beginning, but later on, as the procedure becoming stable and regular, the cost may reduce quite soon. Besides, Deliveroo needs to hire sorts of marketing people to communicate with the fancy restaurant and invite them in. So finally, all of the companies need to spend money on advertisement, and Deliveroo could save money if they select appropriately targeted users in a suitable way.</p>
+
+<p>Obviously, the revenue came from both of the restaurant and users. Whenever users order food on the platform, the users should pay 2.5 pounds’ extra fee, and at the same time, the restaurant should share part of the profit to Deliveroo [20]. </p>
+
+<h1>SWOT Analysis</h1>
+
+<p>In this part, we will use a useful tool called SWOT to analyze Deliveroo. SWOT is consists of four sections, strengths, weaknesses, opportunities and threats. According to Andrew [15], SWOT can easily provide a visual overview, and also enhance the efficiency during the discussion. What’s more, this graph is flexible and quick to generate, which is suitable for most of the start-up. However, the disadvantage exists. If we over represent one of the factors, we may lead the company in a wrong way. So that is why SWOT Analysis is a reference tool in a meeting. The discussion can help to align the development strategies. </p>
+
+<p><img src="http://i.imgur.com/xWP9eRK.png" alt="SWOT Analysis">
+Figure 2: A SWOT analysis can help you identify and understand key issues affecting your business, but it does not necessarily offer solutions [21].</p>
+
+<h2>Strengths:</h2>
+
+<p>One of the most significant strength of Deliveroo is that it owns a delivery team. Deliveroo has been established for four years, which means some of the senior drivers already have four years’ experience. It is quite valuable because the senior drivers are familiar with a city’s road network. Also, they know how to use the supporting mobile software. Moreover, those advantages can save a big amount of money because usually the freshman needs to be trained and studied, and it will cost not only the money but the time. Obviously, even the competitors would like to hire the senior drivers; they have to pay more because of the loyalty.</p>
+
+<p>Also, Deliveroo provides an exclusive choice of restaurant. Not all the restaurants own a delivery team especially most of the classy restaurant. Deliveroo’s delivery team can solve this problem and enhance both their amount of orders and profit. The customers are glad that they can have some extra options and keep staying on this platform.</p>
+
+<p>Finally, Deliveroo provides uniform and accurate estimate delivery time, it can enhance user’s experience. 
+Weakness:</p>
+
+<p>Not like the other competitors have been IPO for more than two years, Deliveroo is in series D, and they have no more than $200 million according to “Total Equity Funding” that shows on Crunchbase [7]. They should use the money in an appropriate way, and that means they should focus on the services not merge other companies in other countries. </p>
+
+<p>Besides, whenever the driver receives an order, they should collect the food in the restaurant and then deliver to the customer. They cannot deliver two customer’s food at the same time, which means the delivered cost is high and not easy to reduce. </p>
+
+<p>Also, in different countries, the law is different, some of the cities may ban the scooter so that the cost may vary due to the transportation fee. Moreover, that is why Deliveroo extends at a slow speed.</p>
+
+<h2>Opportunities:</h2>
+
+<p>Firstly, it is a trend for people to work in some “sharing economy” companies such as Uber, Airbnb. So Deliveroo can easily hire some part-time drivers and decrease the cost of hiring people. Although at the very beginning, Deliveroo needs to train the drivers, the cost is a one-time payment, and it will not last long.</p>
+
+<p>Secondly, the food delivery market is big enough. According to a report [16], the potential market in China is, at least, 100 billion dollars in 2017, and it will increase 28% annually. Moreover, in U.S., TechCrunch illustrates that the market for food delivery and delivery are $70 billion in 2015 while only 10%-18% of the market is online [17]. The market is so huge that it can contain several competitors at the same time.</p>
+
+<p>Finally, not all the cities are now being supported by the online ordering platform. There are still lots of opportunities, and even the competitors have already supported, the followers can provide individuation services to turn the tables. Because the followers can learn from the previous competitors and then make progress, and that is why Facebook can defeat Myspace. </p>
+
+<h2>Threats:</h2>
+
+<p>If Deliveroo expands too fast, they may not provide the same user experience as usual in the new cities. “Homejoy” is once an O2O company that provides cleaning services, but they shut down last year because of the contract of the employees [18]. Deliveroo should take control of the expanding speed and try not to follow the wrong steps, or they may find it is entirely different in various culture and different religion. </p>
+
+<p>Deliveroo should notice that when the competitors start to build their delivery system, they may lose some of the advantages. They should now be working hard on personalizing the delivering process and enhance the efficiency. </p>
+
+<h1>Macro Market and Industry analyses</h1>
+
+<p>According to the current report [2][5][6][16][17], the food delivery and takeaway market are worth 100 billion dollars in China and about 70 billion dollars in U.S., The data in Europe, are varied because of the different condition in various cities. This market’s value grew 27% steadily in this three years. 69.5% people have try to order food online, most of them are age between 18 and 33, and their occupations are mostly student and white-collar [16]. National Restaurant Association states that, there are O2O food ordering platforms early in 2000, and there are more than 1 million restaurants in U.S. in 2013, so the U.S. market has proved this business mode could be succeed. </p>
+
+<p>Moreover, at the same time, more and more people using the smartphone, reaching 60% in the urban cities [16]. It can help the users more convenient to order the food via mobile or website. In 2013, only 3% people chose to order food online, but now this amount has reached 13%. So in the next three years, people ordering food online will expect to reach more than 30%, and the online food ordering market will be about 40 billion dollars. The market cap of Just-Eat is $3,215.56 million [19] in London Stock Exchange, and they have a peak on the last day of 2015. It seems that Deliveroo could reach this position too.</p>
+
+<p>Also, the reports indicate that 76.8% student chose to order food via third-party platform like “ele.me”,” MeiTuan”, while only 35.7% students order food from fast food restaurant such as “McDonald”. On the contrary, more that 72% white-collar prefer to order food on platform provided by fast food restaurant. That is the difference that Deliveroo need to notice.</p>
+
+<p>GrubHub merge three different companies from 2011 to 2013, which are Seamless, Dotmenu, Menuages. Also, Delivery Hero purchase Yemeksepeti and Talabat.com in 2015.
+Just Eat merge the lead in Australia and New Zealand, Menulog, in 2015 too. Finally, the U.S. company Priceline purchase OpenTable in 2014. All of the light platform competitors are prefer to merge others to gain a better assessment, and Deliveroo need to learn how to expand without money. </p>
+
+<h1>Discussion</h1>
+
+<p>Deliveroo has great potential in food delivery market comparing to other competitors. They have 74,000 active users [20], and this is the data 6 months ago. Also, they have 500 employees in different cities, such as drives, coder, marketing people [20].</p>
+
+<p>However, as we can see from the BMC and SWOT, other competitors can learn from Deliveroo’s strength. They may start to hire some extra drivers if they want, and challenge Deliveroo with competitive discount. The war in food delivery market in China has already proved it; the customers will follow the company which provide the prime discount while the money is not one of the strengths of Deliveroo’s SWOT analyses. </p>
+
+<p>What’s more, Deliveroo uses the scooter as their transport tools, and it is useful for the area that often appears traffic conjunction. They can try to cooperate with other company, to deliver goods in a short time, it may help them to decrease the fee with a considerable range, and that is Uber dose in some of the countries. </p>
+
+<p>Both BMC and SWOT provides a clear structure and simple visual representation. Especially the SWOT, different strategies like defensive or offensive strategy are being considered. Also, the internal and external threats are shows in the graph at the same time. Although it was invented more than 40 years, it is still useful during the discussion.</p>
+
+<p>In a word, we will still use these two methods in the following group coursework, and if we have a chance to create a start-up, these two approaches are the priority choices.</p>
+
+<h1>Appendix</h1>
+
+<p><img src="http://i.imgur.com/dvK8DuX.png" alt="BMC"></p>
+
+<h1>Reference:</h1>
+
+<p>[1] The Statistics Portal. (2015). Statistics and facts on the food delivery industry in the U.S.. Available at: <a href="http://www.statista.com/topics/1986/food-delivery-industry-in-the-us/.">http://www.statista.com/topics/1986/food-delivery-industry-in-the-us/.</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[2] Analysys reports. (2015). Chinese Internet market research reports Takeout Dining 2015H2. Available at: <a href="http://www.analysys.cn/report/detail/16354.html">http://www.analysys.cn/report/detail/16354.html</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[3] William S. (2016). William S. ‘s LinkedIn page Available at: &lt; <a href="https://www.linkedin.com/in/william-s-163bbb11?authType=NAME_SEARCH&amp;authToken=1eVo&amp;locale=en_US&amp;srchid=3189843131454974969953&amp;srchindex=1&amp;srchtotal=33&amp;trk=vsrp_people_res_name&amp;trkInfo=VSRPsearchId%3A3189843131454974969953%2CVSRPtargetId%3A41802267%2CVSRPcmpt%3Aprimary%2CVSRPnm%3Atrue%2CauthType%3ANAME_SEARCH">https://www.linkedin.com/in/william-s-163bbb11?authType=NAME_SEARCH&amp;authToken=1eVo&amp;locale=en_US&amp;srchid=3189843131454974969953&amp;srchindex=1&amp;srchtotal=33&amp;trk=vsrp_people_res_name&amp;trkInfo=VSRPsearchId%3A3189843131454974969953%2CVSRPtargetId%3A41802267%2CVSRPcmpt%3Aprimary%2CVSRPnm%3Atrue%2CauthType%3ANAME_SEARCH</a> &gt; [Accessed 13th Feb 2016.]</p>
+
+<p>[4] Greg Orlowski (2016). Greg Orlowski. ‘s LinkedIn page Available at: &lt; <a href="https://www.linkedin.com/in/greg-orlowski-705a2152?authType=name&amp;authToken=HHlT&amp;trk=prof-sb-browse_map-name">https://www.linkedin.com/in/greg-orlowski-705a2152?authType=name&amp;authToken=HHlT&amp;trk=prof-sb-browse_map-name</a> &gt; [Accessed 13th Feb 2016.]</p>
+
+<p>[5] Hwang J, Ok C. The antecedents and consequence of consumer attitudes toward restaurant brands: A comparative study between casual and fine dining restaurants[J]. International Journal of Hospitality Management, 2013, 32: 121-131.</p>
+
+<p>[6] Independent. (2015). Deliveroo, the online delivery service that brings restaurant food to your door, has raised £16.5m. Available at: <http://www.independent.co.uk/news/business/news/deliveroo-the-online-delivery-service-that-brings-restaurant-food-to-your-door-has-raised-165m-10010064.html > [Accessed 13th Feb 2016.]</p>
+
+<p>[7] CrunchBase. (2015). Overview of Deliveroo Available at: <a href="https://www.crunchbase.com/organization/deliveroo">https://www.crunchbase.com/organization/deliveroo</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[8] Barquet, Ana Paula B., et al. &quot;Business model elements for product-service system.&quot; Functional Thinking for Value Creation. Springer Berlin Heidelberg, 2011. 332-337</p>
+
+<p>[9] De Reuver, Mark, Harry Bouwman, and Timber Haaker. &quot;Business model roadmapping: A practical approach to come from an existing to a desired business model.&quot; International Journal of Innovation Management 17.01 (2013)</p>
+
+<p>[10] Jason F. (2015). Business Model Canvas – Facilitator Cards
+ Available at: <https://jasonfurnell.wordpress.com/2010/12/02/business-model-canvas-facilitator-cards/ > [Accessed 13th Feb 2016.]</p>
+
+<p>[11] Martin M., Index Ventures (2015). Building a local food delivery network
+ Available at: <a href="https://indexventures.com/news-room/blog/building-a-local-food-delivery-network">https://indexventures.com/news-room/blog/building-a-local-food-delivery-network</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[12] Diamond M B, White J B. Method and system for registering and activating content: U.S. Patent 8,346,807[P]. 2013-1-1.</p>
+
+<p>[13] Stefan S., TheGuardian (2015). Deliveroo and its ilk are serving up low wages, insecurity and social division Available at: &lt; <a href="http://www.theguardian.com/commentisfree/2015/dec/17/deliveroo-gig-economy-human-cost%3E">http://www.theguardian.com/commentisfree/2015/dec/17/deliveroo-gig-economy-human-cost&gt;</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[14] Newseed (2015). Giant intervention, subsidy wars? Hungry Mody, the US group who look at how foreign takeaway O2O do it Available at: <http://newseed.pedaily.cn/201501/201501291319233.shtml > [Accessed 13th Feb 2016.]</p>
+
+<p>[15] Andrew Beattie (2014). Benefits Of Doing A SWOT Analysis
+Available at: <a href="http://www.investopedia.com/articles/investing/101414/benefits-doing-swot-analysis.asp">http://www.investopedia.com/articles/investing/101414/benefits-doing-swot-analysis.asp</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[16] IResearch (2015). IResearch: 2015 Chinese takeout O2O industry research report
+Available at: <a href="http://www.09dsj.com/index.php/archives/3331">http://www.09dsj.com/index.php/archives/3331</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[17] CRUNCH NETWORK (2015). A Secular Shift To Online Food Ordering Available at: <a href="http://techcrunch.com/2015/05/07/a-secular-shift-to-online-food-ordering/#.av0ornw:yugr">http://techcrunch.com/2015/05/07/a-secular-shift-to-online-food-ordering/#.av0ornw:yugr</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[18] 36Kr (2015). Housekeeping O2O originator Homejoy bankrupt, who is it crushed the last straw? Available at: <a href="http://36kr.com/p/5035552.html">http://36kr.com/p/5035552.html</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[19] London Stock Exchange (2016). JE. JUST EAT PLC ORD 1P
+. Available at: <a href="http://www.londonstockexchange.com/exchange/prices-and-markets/stocks/summary/company-summary/GB00BKX5CN86GBGBXSTMM.html">http://www.londonstockexchange.com/exchange/prices-and-markets/stocks/summary/company-summary/GB00BKX5CN86GBGBXSTMM.html</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[20] WIRED.CO.UK (2015). Startup of the Week: Deliveroo. Available at: <a href="http://www.wired.co.uk/news/archive/2015-04/03/startup-of-the-week-deliveroo">http://www.wired.co.uk/news/archive/2015-04/03/startup-of-the-week-deliveroo</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[21] Queensland Government (2014). Benefits and limitations of SWOT analysis
+. Available at: <a href="https://www.business.qld.gov.au/business/starting/market-customer-research/swot-analysis/benefits-limitations-swot-analysis">https://www.business.qld.gov.au/business/starting/market-customer-research/swot-analysis/benefits-limitations-swot-analysis</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[22] Angel (2016). Available at: <a href="https://angel.co/deliveroo">https://angel.co/deliveroo</a> [Accessed 13th Feb 2016.]</p>
+
+<p>[23] Deliveroo (2016). RIDE WITH US. Available at: <a href="https://deliveroo.ie/apply">https://deliveroo.ie/apply</a> [Accessed 13th Feb 2016.]</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            assignment, Deliveroo
+          </small>
+        </div>
+        
+
+        <div class="suggest-edit">
+          Spotted a mistake in this article? Why not <a href="https://github.com/koalaGreener/blob/master/_posts/2016/2015-02-15-Analyses of start-up Deliveroo.md" data-proofer-ignore>suggest an edit</a>!
+        </div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/GreenerGooner">@GreenerGooner</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "None"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    <i class="fa fa-heart"></i>
+  </div>
+  <div class="col-md-6">
+    Support by <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'None']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>
