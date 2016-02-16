@@ -5,8 +5,8 @@
     <description>Weijie Huang&#39;s blog</description>
     <link>http://koalagreener.github.io/</link>
     <atom:link href="http://koalagreener.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 16 Feb 2016 02:30:23 +0000</pubDate>
-    <lastBuildDate>Tue, 16 Feb 2016 02:30:23 +0000</lastBuildDate>
+    <pubDate>Tue, 16 Feb 2016 18:14:50 +0000</pubDate>
+    <lastBuildDate>Tue, 16 Feb 2016 18:14:50 +0000</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -14,7 +14,7 @@
         <description>&lt;h1&gt;Weijie HUANG&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Mobile：+44 07421317267 &lt;/li&gt;
+&lt;li&gt;Mobile：(44) 07421-317-267 &lt;/li&gt;
 &lt;li&gt;Email：&lt;a href=&quot;mailto:weijie.huang@ucl.ac.uk&quot;&gt;weijie.huang@ucl.ac.uk&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -23,23 +23,28 @@
 &lt;h1&gt;Education&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;UCL Master Degree, Computer Science, 2015 - 2016&lt;/li&gt;
-&lt;li&gt;Beijing Normal University, Zhuhai Bachelor Degree, Software Engineering, 2011 - 2015 GPA 4.0/5.0&lt;/li&gt;
-&lt;li&gt;Fu Jen Catholic University (Taiwan) Government-Sponsored Exchange Student, Software Engineering, 2012 - 2013 GPA 4.3/5.0&lt;/li&gt;
-&lt;li&gt;Blog：&lt;a href=&quot;https://koalagreener.github.io&quot;&gt;https://koalagreener.github.io&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Github：&lt;a href=&quot;https://github.com/koalagreener&quot;&gt;https://github.com/koalagreener&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Expected position：Data Scientist, Research Engineer&lt;/li&gt;
-&lt;li&gt;Location：Any location&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Master of Science in Web Science and Big Data Analytics, UCL, 2015 — 2016&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Bachelor of Science in Computer Science,&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Beijing Normal University, Zhuhai, GPA 4.0/5.0, 2011 — 2015&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Government-Sponsored Exchange Student, Fu Jen Catholic University (Taiwan), GPA 4.3/5.0, 2012 — 2013 &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Blog：&lt;a href=&quot;https://koalagreener.github.io&quot;&gt;https://koalagreener.github.io&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Github：&lt;a href=&quot;https://github.com/koalagreener&quot;&gt;https://github.com/koalagreener&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Expected position：Data Scientist, Research Engineer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Location：Any location&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr&gt;
 
 &lt;h1&gt;Projects&lt;/h1&gt;
 
-&lt;h3&gt;University College London (Oct,2015 ~ Feb,2016）&lt;/h3&gt;
+&lt;h3&gt;University College London (Oct 2015 — Feb 2016）&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/koalaGreener/NLP-Assignments&quot;&gt;NLP Assignments&lt;/a&gt;：The source code of three NLP projects and the reports.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/koalaGreener/NLP-Assignments&quot;&gt;NLP Assignments&lt;/a&gt;：The source code of three NLP projects and the reports. (Using Scala language)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4&gt;Sentence Representations for Sentiment Analysis on Twitter&lt;/h4&gt;
@@ -54,7 +59,7 @@
 
 &lt;p&gt;In this assignment, I design and implement specific language models and apply them to the provided rap corpus. By comparing different results with different language models, I chose the best pair of the parameter to reduce Perplexity from 4216 to 336, and the result of document classification peaked at 90% and 96.67% respectively on two datasets.&lt;/p&gt;
 
-&lt;h3&gt;Beijing Normal University, Zhuhai （Mar,2014 ~ May,2014）&lt;/h3&gt;
+&lt;h3&gt;Beijing Normal University, Zhuhai （Mar 2014 — May 2014）&lt;/h3&gt;
 
 &lt;h4&gt;Alibaba Big Data Competition&lt;/h4&gt;
 
@@ -67,14 +72,14 @@
 
 &lt;h1&gt;Experience&lt;/h1&gt;
 
-&lt;h3&gt;BNUZ Enactus (NGO) Team, Phyt-Refine Project （ Oct,2011 ~ Jun,2014 ）&lt;/h3&gt;
+&lt;h3&gt;BNUZ Enactus (NGO) Team, Phyt-Refine Project （ Oct 2011 — Jun 2014 ）&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;This project aims to Cultivate herbs in the rivers to cleanse polluted water and then refine the compound element from the herbs to produce profits and create job opportunities. &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;In this three years, I mainly responsible for presenting the project during competitions, making and clipping the videos, and slides. Also, I participated in planting herbs in the watercourse and conducted an in-depth investigation in polluted rural areas and proposing practical.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;With three years of relentless efforts, Zhuhai Municipal Government moved the biggest polluting source in 2013 and invested in planting herbs at the mouth of Pearl River. As a result, water quality has been remarkably improved.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Winning Top 10 Team (221 teams in total) Award and the Project Incubation Opportunity in 2013 Junior Achievement YESxBOP Business Plan Competition&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Winning National 2nd Prize (227 universities in total) in 2014 Enactus China National Competition&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;This project aims to Cultivate herbs in the rivers to cleanse polluted water and then refine the compound element from the herbs to produce profits and create job opportunities. &lt;/li&gt;
+&lt;li&gt;In this three years, I mainly responsible for presenting the project during competitions, making and clipping the videos, and slides. Also, I participated in planting herbs in the watercourse and conducted an in-depth investigation in polluted rural areas and proposing practical.&lt;/li&gt;
+&lt;li&gt;With three years of relentless efforts, Zhuhai Municipal Government moved the biggest polluting source in 2013 and invested in planting herbs at the mouth of Pearl River. As a result, water quality has been remarkably improved.&lt;/li&gt;
+&lt;li&gt;Winning Top 10 Team (221 teams in total) Award and the Project Incubation Opportunity in 2013 Junior Achievement YESxBOP Business Plan Competition&lt;/li&gt;
+&lt;li&gt;Winning National 2nd Prize (227 universities in total) in 2014 Enactus China National Competition&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr&gt;
@@ -85,7 +90,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;Top Ten Graduates, 2015&lt;/li&gt;
-&lt;li&gt;First Prize Scholarship, three times, 2012-2014&lt;/li&gt;
+&lt;li&gt;First Prize Scholarship, three times, 2012 — 2014&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr&gt;
