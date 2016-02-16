@@ -5,8 +5,8 @@
     <description>Weijie Huang&#39;s blog</description>
     <link>http://koalagreener.github.io/</link>
     <atom:link href="http://koalagreener.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 16 Feb 2016 18:14:50 +0000</pubDate>
-    <lastBuildDate>Tue, 16 Feb 2016 18:14:50 +0000</lastBuildDate>
+    <pubDate>Tue, 16 Feb 2016 18:20:06 +0000</pubDate>
+    <lastBuildDate>Tue, 16 Feb 2016 18:20:06 +0000</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -23,18 +23,13 @@
 &lt;h1&gt;Education&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Master of Science in Web Science and Big Data Analytics, UCL, 2015 — 2016&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Bachelor of Science in Computer Science,&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Beijing Normal University, Zhuhai, GPA 4.0/5.0, 2011 — 2015&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Government-Sponsored Exchange Student, Fu Jen Catholic University (Taiwan), GPA 4.3/5.0, 2012 — 2013 &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Blog：&lt;a href=&quot;https://koalagreener.github.io&quot;&gt;https://koalagreener.github.io&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Github：&lt;a href=&quot;https://github.com/koalagreener&quot;&gt;https://github.com/koalagreener&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Expected position：Data Scientist, Research Engineer&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Location：Any location&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Master of Science in Web Science and Big Data Analytics, UCL, 2015 — 2016&lt;/li&gt;
+&lt;li&gt;Bachelor of Science in Computer Science, Beijing Normal University, Zhuhai, GPA 4.0/5.0, 2011 — 2015&lt;/li&gt;
+&lt;li&gt;Government-Sponsored Exchange Student, Fu Jen Catholic University (Taiwan), GPA 4.3/5.0, 2012 — 2013 &lt;/li&gt;
+&lt;li&gt;Blog：&lt;a href=&quot;https://koalagreener.github.io&quot;&gt;https://koalagreener.github.io&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Github：&lt;a href=&quot;https://github.com/koalagreener&quot;&gt;https://github.com/koalagreener&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Expected position：Data Scientist, Research Engineer&lt;/li&gt;
+&lt;li&gt;Location：Any location&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr&gt;
@@ -53,7 +48,7 @@
 
 &lt;h4&gt;Biomedical Event Extraction&lt;/h4&gt;
 
-&lt;p&gt;In this assignment, sentences are mapped to structured representations of the biomedical events. We use Perceptron Algorithm and Loglinear Models, which is a set of binary feature functions to predict the biomedical events. We have implemented the feature functions in several ways, such as lexical feature,entity-based feature,syntax-based feature. Comparing to Naive Bayes Algorithm(MLE), the result of our model that trained by Perceptron Algorithm is XX% higher.&lt;/p&gt;
+&lt;p&gt;In this assignment, sentences are mapped to structured representations of the biomedical events. We use Perceptron Algorithm and Loglinear Models, which is a set of binary feature functions to predict the biomedical events. We have implemented the feature functions in several ways, such as lexical feature,entity-based feature,syntax-based feature. Comparing to Naive Bayes Algorithm(MLE), the result of our model that trained by Perceptron Algorithm is 34.82% higher.&lt;/p&gt;
 
 &lt;h4&gt;Language Models for processing rap corpus&lt;/h4&gt;
 

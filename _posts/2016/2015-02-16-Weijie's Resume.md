@@ -17,19 +17,11 @@ tags:
 # Education
 
 - Master of Science in Web Science and Big Data Analytics, UCL, 2015 — 2016
-  
-- Bachelor of Science in Computer Science,
-  
-  Beijing Normal University, Zhuhai, GPA 4.0/5.0, 2011 — 2015
-  
+- Bachelor of Science in Computer Science, Beijing Normal University, Zhuhai, GPA 4.0/5.0, 2011 — 2015
 - Government-Sponsored Exchange Student, Fu Jen Catholic University (Taiwan), GPA 4.3/5.0, 2012 — 2013 
-  
 - Blog：https://koalagreener.github.io.
-  
 - Github：https://github.com/koalagreener
-  
 - Expected position：Data Scientist, Research Engineer
-  
 - Location：Any location
 
 ---
@@ -48,7 +40,7 @@ In this assignment, we investigate representation learning for sentiment analysi
 
 #### Biomedical Event Extraction
 
-In this assignment, sentences are mapped to structured representations of the biomedical events. We use Perceptron Algorithm and Loglinear Models, which is a set of binary feature functions to predict the biomedical events. We have implemented the feature functions in several ways, such as lexical feature,entity-based feature,syntax-based feature. Comparing to Naive Bayes Algorithm(MLE), the result of our model that trained by Perceptron Algorithm is XX% higher.
+In this assignment, sentences are mapped to structured representations of the biomedical events. We use Perceptron Algorithm and Loglinear Models, which is a set of binary feature functions to predict the biomedical events. We have implemented the feature functions in several ways, such as lexical feature,entity-based feature,syntax-based feature. Comparing to Naive Bayes Algorithm(MLE), the result of our model that trained by Perceptron Algorithm is 34.82% higher.
 
 
 
